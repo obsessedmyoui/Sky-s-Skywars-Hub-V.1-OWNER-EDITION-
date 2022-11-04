@@ -1,0 +1,1 @@
+loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/obsessedmyoui/sky-and-law-s-personal-script/main/owner%20edition.lua"))()
