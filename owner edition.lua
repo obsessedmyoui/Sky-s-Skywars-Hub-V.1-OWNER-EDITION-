@@ -1,13 +1,13 @@
 -- sky and law's personal script
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Sky's Skywars Hub V.2 (OWNER EDITION)", "Ocean")
+local Window = Library.CreateLib("Sky's Skywars Hub V.1 (OWNER EDITION)", "Synapse")
 
 -- Main
 local Main = Window:NewTab("Trump Cards")
 local MainSection = Main:NewSection("Trump Card Features")
 local ToggleSection = Main:NewSection("Toggle")
-local BasicSection = Main:NewSection("Mid Features")
+local BasicSection = Main:NewSection("Basics || FREE VERSION SECTION")
 
 BasicSection:NewButton("Autofarm", "hold pickaxe before you auto mine ores", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/ResY6ccq"))()
@@ -99,7 +99,7 @@ MainSection:NewButton("Auto Win Farm", "ez", function()
 		game.Players.LocalPlayer.Character:FindFirstChild('Humanoid').PlatformStand = false
 		end)
 
-MainSection:NewKeybind("Mine Aura", "better mining algorithm", Enum.KeyCode.C, function()
+MainSection:NewKeybind("Box Mine", "better mining algorithm", Enum.KeyCode.C, function()
 	function onTouched(part)       
 		local h = part
 		if h.Name == "Block" then
@@ -142,9 +142,6 @@ BasicSection:NewButton("Baseplate", "a huge platform underneath", function()
 		game.Workspace["MomentoXD"]:Destroy()
 	end
 end)
-
-
-
 
 
 MainSection:NewButton("No Collision Blocks", "null", function()
@@ -203,13 +200,14 @@ CombatSection:NewButton("Hitbox 1", "reach", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/86MVeD35"))()
 end)
 
-CombatSection:NewButton("Hitbox 2", "press F4 to hide ui", function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/2dgeneralspam1/lua-releases/main/iris-compat.lua'))()end;local function a()print("Loading...")loadstring(syn.request({Url='https://raw.githubusercontent.com/2dgeneralspam1/CheatX/main/versions/cheatx-old.lua'}).Body)()end;pcall(a)
-end)
-
 CombatSection:NewButton("Melee Bot", "aimbot but swordbot", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/2deFsYQn"))()  
 end)
+
+
+
+
+
 
 -- Teleports
 
@@ -238,8 +236,9 @@ end)
 
 -- Other
 local Other = Window:NewTab("Others")
-local OtherSection = Other:NewSection("Others")
+local OtherSection = Other:NewSection("Other Features")
 
 OtherSection:NewButton("Skywars GUI", "yes", function()
-    loadstring(game:HttpGet("https://paste.ee/r/r9gnA", true))()
+    loadstring(game:HttpGet("https://paste.ee/r/r9gnA"))()  
 end)
+
