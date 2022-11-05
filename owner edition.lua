@@ -1,7 +1,7 @@
 -- sky and law's personal script
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Sky's Skywars Hub V.1 (OWNER EDITION)", "Synapse")
+local Window = Library.CreateLib("Sky's Skywars Hub V.2 (OWNER EDITION)", "Ocean")
 
 -- Main
 local Main = Window:NewTab("Trump Cards")
