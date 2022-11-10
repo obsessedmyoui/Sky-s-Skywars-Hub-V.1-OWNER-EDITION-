@@ -169,10 +169,10 @@ MainSection:NewButton("Ender", "use baseplate before this if you're dumb", funct
     loadstring(game:HttpGetAsync("https://pastebin.com/raw/FiKmv1bS"))()  
 end)
 
-MainSection:NewButton("Hat Spin FE", "ur hats spin duh", function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/KrXdY0m9"))()  
-end)
-
+MainSection:NewButton("Hat Spin FE", "ur hat spins duh", function()
+    loadstring(game:HttpGetAsync("https://pastebin.com/raw/KrXdY0m9"))()  
+end)		
+		
 MainSection:NewButton("Porn Hub", "use baseplate before this if you're dumb", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Tescalus/Pendulum-Hubs-Source/main/Pendulum%20Hub%20V5.lua"))()  
 end)
