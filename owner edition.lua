@@ -1,13 +1,16 @@
 -- sky and law's personal script
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Sky's Skywars Hub V.2 (OWNER EDITION)", "Ocean")
+local Window = Library.CreateLib("Sky's Hub V.2 (OWNER EDITION)", "Ocean")
 
+if game.PlaceId == 855499080 then
 -- Main
 local Main = Window:NewTab("Trump Cards")
 local MainSection = Main:NewSection("Trump Card Features")
 local ToggleSection = Main:NewSection("Toggle")
-local BasicSection = Main:NewSection("Basics || FREE VERSION SECTION")
+local BasicSection = Main:NewSection("Mid Features")
+
+if game.PlaceId == 855499080 then
 
 BasicSection:NewButton("Autofarm", "hold pickaxe before you auto mine ores", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/ResY6ccq"))()
@@ -99,7 +102,7 @@ MainSection:NewButton("Auto Win Farm", "ez", function()
 		game.Players.LocalPlayer.Character:FindFirstChild('Humanoid').PlatformStand = false
 		end)
 
-MainSection:NewKeybind("Box Mine", "better mining algorithm", Enum.KeyCode.C, function()
+MainSection:NewKeybind("Mine Aura", "better mining algorithm", Enum.KeyCode.C, function()
 	function onTouched(part)       
 		local h = part
 		if h.Name == "Block" then
@@ -166,6 +169,10 @@ MainSection:NewButton("Ender", "use baseplate before this if you're dumb", funct
     loadstring(game:HttpGetAsync("https://pastebin.com/raw/FiKmv1bS"))()  
 end)
 
+MainSection:NewButton("Hat Spin FE", "use baseplate before this if you're dumb", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/KrXdY0m9"))()  
+end)
+
 MainSection:NewButton("Porn Hub", "use baseplate before this if you're dumb", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Tescalus/Pendulum-Hubs-Source/main/Pendulum%20Hub%20V5.lua"))()  
 end)
@@ -200,14 +207,13 @@ CombatSection:NewButton("Hitbox 1", "reach", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/86MVeD35"))()
 end)
 
+CombatSection:NewButton("Hitbox 2", "press F4 to hide ui", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/2dgeneralspam1/lua-releases/main/iris-compat.lua'))()end;local function a()print("Loading...")loadstring(syn.request({Url='https://raw.githubusercontent.com/2dgeneralspam1/CheatX/main/versions/cheatx-old.lua'}).Body)()end;pcall(a)
+end)
+
 CombatSection:NewButton("Melee Bot", "aimbot but swordbot", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/2deFsYQn"))()  
 end)
-
-
-
-
-
 
 -- Teleports
 
@@ -238,7 +244,7 @@ end)
 local Other = Window:NewTab("Others")
 local OtherSection = Other:NewSection("Other Features")
 
-OtherSection:NewButton("Skywars GUI", "yes", function()
+OtherSection:NewButton("Skywars GUI", "i did not steal this.", function()
     loadstring(game:HttpGet("https://paste.ee/r/r9gnA"))()  
 end)
 
