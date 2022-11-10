@@ -143,13 +143,6 @@ BasicSection:NewButton("Baseplate", "a huge platform underneath", function()
 	end
 end)
 
-
-MainSection:NewButton("Better Hitbox", "reach", function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/86MVeD35"))()
-end)
-
-
-
 MainSection:NewButton("No Collision Blocks", "null", function()
     local Why = game:GetService("Players").LocalPlayer
 		local Char = Why.Character
