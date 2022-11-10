@@ -169,7 +169,7 @@ MainSection:NewButton("Ender", "use baseplate before this if you're dumb", funct
     loadstring(game:HttpGetAsync("https://pastebin.com/raw/FiKmv1bS"))()  
 end)
 
-MainSection:NewButton("Hat Spin FE", "use baseplate before this if you're dumb", function()
+MainSection:NewButton("Hat Spin FE", "ur hats spin duh", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/KrXdY0m9"))()  
 end)
 
