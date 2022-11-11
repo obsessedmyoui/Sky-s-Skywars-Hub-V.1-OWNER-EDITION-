@@ -157,10 +157,6 @@ BasicSection:NewButton("Infinite Yield", "abuse cry babies", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
 end)
 
-BasicSection:NewButton("Paw's Godmode", "god", function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/hwNz1yVW"))()
-end)
-
 MainSection:NewButton("Ender", "use baseplate before this if you're dumb", function()
     loadstring(game:HttpGetAsync("https://pastebin.com/raw/FiKmv1bS"))()  
 end)
