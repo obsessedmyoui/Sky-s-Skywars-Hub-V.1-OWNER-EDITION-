@@ -1,7 +1,7 @@
 -- sky and law's personal script
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Sky's Skywars Hub V.2 (OWNER EDITION)", "Ocean")
+local Window = Library.CreateLib("Sky's Skywars Hub V.3 (OWNER EDITION)", "Synapse")
 
 -- Main
 local Main = Window:NewTab("Trump Cards")
@@ -173,6 +173,9 @@ BasicSection:NewButton("Delete Killplates", "deletes killplates", function()
     game.workspace.Lobby.KillPlates:remove()
 end)
 
+
+
+
 -- Local Player
 local Player = Window:NewTab("LocalPlayer")
 local PlayerSection = Player:NewSection("WS/JP")
@@ -199,6 +202,77 @@ CombatSection:NewButton("Melee Bot", "aimbot but swordbot", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/2deFsYQn"))()  
 end)
 
+-- Lazy Section
+
+local Lazy = Window:NewTab("Lazy")
+local LazySection = Lazy:NewSection("The only scripts u need")
+
+LazySection:NewButton("Hitbox 1", "reach", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/86MVeD35"))()
+end)
+
+LazySection:NewButton("AntiCheat Bypass", "bypass", function()
+	if game:GetService("Players").LocalPlayer.PlayerGui.Extra:FindFirstChild("Local") then
+		local plr       = game:GetService("Players").LocalPlayer
+		local workspace = game:GetService("Workspace")
+		plr.PlayerGui:WaitForChild("Extra"):WaitForChild("Local").Parent = game:GetService("Workspace")
+		plr.PlayerGui:WaitForChild("Extra"):WaitForChild("Local").Parent = game:GetService("Workspace")
+		plr.PlayerGui:WaitForChild("Extra"):WaitForChild("MobileFix").Parent = game:GetService("Workspace")
+		plr.PlayerGui:WaitForChild("Extra"):WaitForChild("XboxFix").Parent = game:GetService("Workspace")
+		wait()
+		workspace:FindFirstChild("Local"):Destroy()
+		workspace:FindFirstChild("Local"):Destroy()
+		workspace:FindFirstChild("MobileFix"):Destroy()
+		workspace:FindFirstChild("XboxFix"):Destroy()
+		game.workspace.Borders.InvisibleBorder:remove()
+		game.workspace.Lobby.KillPlates:remove()
+		venyx:Notify("Bypassed", "Bypassed: true")
+
+		plr.CharacterAdded:Connect(function()
+			plr.PlayerGui:WaitForChild("Extra"):WaitForChild("Local").Parent = game:GetService("Workspace")
+			plr.PlayerGui:WaitForChild("Extra"):WaitForChild("Local").Parent = game:GetService("Workspace")
+			plr.PlayerGui:WaitForChild("Extra"):WaitForChild("MobileFix").Parent = game:GetService("Workspace")
+			plr.PlayerGui:WaitForChild("Extra"):WaitForChild("XboxFix").Parent = game:GetService("Workspace")
+			wait()
+			workspace:FindFirstChild("Local"):Destroy()
+			workspace:FindFirstChild("Local"):Destroy()
+			workspace:FindFirstChild("MobileFix"):Destroy()
+			workspace:FindFirstChild("XboxFix"):Destroy()
+		end)
+	else
+		venyx:Notify("Really", "Bypassed")           
+	end
+end) 
+
+LazySection:NewButton("Middle Island", "teleports you to the middle island", function()
+    game:GetService('Players').LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2, 171, -9)
+end)
+
+LazySection:NewButton("Baseplate", "a huge platform underneath", function()
+    local baseplate    = Instance.new("Part")
+	baseplate.Parent   = workspace
+	baseplate.Name = "MomentoXD"
+	baseplate.Transparency = 0.5
+	baseplate.Size     = Vector3.new(800,1,800) -- change size
+	baseplate.Anchored = true
+	baseplate.Position = Workspace.Lobby["Middle Room"].Floor.Base.Union.Position + Vector3.new(0,-112,0)
+
+	if value == false then
+		game.Workspace["MomentoXD"]:Destroy()
+	end
+end)
+
+LazySection:NewButton("Delete Killplates", "deletes killplates", function()
+    game.workspace.Lobby.KillPlates:remove()
+end)
+
+LazySection:NewButton("Infinite Yield", "abuse cry babies", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+LazySection:NewButton("7 Personalities", "use baseplate for this if u're dumb", function()
+    loadstring(game:HttpGetAsync("https://bit.ly/3IUKqjB"))()
+end)
 
 
 
@@ -236,4 +310,3 @@ local OtherSection = Other:NewSection("Other Features")
 OtherSection:NewButton("Skywars GUI", "i did not steal this.", function()
     loadstring(game:HttpGet("https://paste.ee/r/r9gnA"))()  
 end)
-
