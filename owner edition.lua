@@ -100,7 +100,7 @@ MainSection:NewButton("Auto Win Farm", "ez", function()
 		end)
 
 MainSection:NewButton("End Round", "kills everyone including you", function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/Vj9MjRSP"))()  
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/obsessedmyoui/End-Round/main/end%20round%20sw.txt"))()  
 end)
 
 MainSection:NewKeybind("Box Mine", "better mining algorithm", Enum.KeyCode.C, function()
