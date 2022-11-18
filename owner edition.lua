@@ -314,3 +314,8 @@ local OtherSection = Other:NewSection("Other Features")
 OtherSection:NewButton("Skywars GUI", "i did not steal this.", function()
     loadstring(game:HttpGet("https://paste.ee/r/r9gnA"))()  
 end)
+
+OtherSection:NewButton("Arsenal Hub", "for arsenal only.", function()
+    loadstring(game:HttpGetAsync("https://pastebin.com/raw/6XFzeh8u"))()  
+end)
+
