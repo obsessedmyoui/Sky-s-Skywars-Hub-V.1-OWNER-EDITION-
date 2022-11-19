@@ -398,8 +398,8 @@ end
 )
 
 islandsection:addButton("Island 8", function ()
-	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0, 264, 20)
-end
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-112, 165, 16)
+    end
 )
 
 cbsection:addButton("Hitbox", function ()
