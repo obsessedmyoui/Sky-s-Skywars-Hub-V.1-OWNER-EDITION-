@@ -20,6 +20,7 @@ local combat = venyx:addPage("Combat", 5012544693)
 local cbsection = combat:addSection("Combat Features")
 local teleport = venyx:addPage("Teleports", 5012544693)
 local tpsection = teleport:addSection("Teleports")
+local islandsection = teleport:addSection("Island Teleports")
 local others = venyx:addPage("Others", 5012544693)
 local midsection = skywars:addSection("Mid Features")
 
@@ -32,7 +33,13 @@ end)
 
 
 
-tcsection:addButton("Win Round", function ()
+
+
+tcsection:addButton("End Round", function ()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/obsessedmyoui/End-Round/main/end%20round%20sw.txt"))()
+end)
+
+tcsection:addButton("Fling Everyone", function ()
 	local Adrix        = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 	wait(0.01)
 	ZZ = game:GetService('RunService').Stepped:connect(function()
@@ -81,10 +88,6 @@ tcsection:addButton("Win Round", function ()
 	game.Players.LocalPlayer.Character:FindFirstChild('Humanoid').PlatformStand = true
 	wait()
 	game.Players.LocalPlayer.Character:FindFirstChild('Humanoid').PlatformStand = false
-end)
-
-tcsection:addButton("End Round", function ()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/obsessedmyoui/End-Round/main/end%20round%20sw.txt"))()
 end)
 
 tcsection:addButton("No Collision Blocks", function ()
@@ -183,9 +186,120 @@ midsection:addButton("Baseplate", function ()
 	end
 end)
 
+midsection:addButton("ESP", function ()
+	ALLYCOLOR = {0, 255, 255}
+	ENEMYCOLOR = {255, 0, 0}
+	TRANSPARENCY = 0.5
+	HEALTHBAR_ACTIVATED = true
+	function createFlex()
+		players = game:GetService("Players")
+		faces = {"Front", "Back", "Bottom", "Left", "Right", "Top"}
+		currentPlayer = nil
+		lplayer = players.LocalPlayer
+		players.PlayerAdded:Connect(
+			function(G)
+				currentPlayer = G
+				G.CharacterAdded:Connect(
+					function(H)
+						createESP(H)
+					end
+				)
+			end
+		)
+		function checkPart(I)
+			if (I:IsA("Part") or I:IsA("MeshPart")) and I.Name ~= "HumanoidRootPart" then
+				return true
+			end
+		end
+		function actualESP(I)
+			for u = 0, 5 do
+				surface = Instance.new("SurfaceGui", I)
+				surface.Face = Enum.NormalId[faces[u + 1]]
+				surface.AlwaysOnTop = true
+				frame = Instance.new("Frame", surface)
+				frame.Size = UDim2.new(1, 0, 1, 0)
+				frame.BorderSizePixel = 0
+				frame.BackgroundTransparency = TRANSPARENCY
+				if currentPlayer.Team == players.LocalPlayer.Team then
+					frame.BackgroundColor3 = Color3.new(ALLYCOLOR[1], ALLYCOLOR[2], ALLYCOLOR[3])
+				else
+					frame.BackgroundColor3 = Color3.new(ENEMYCOLOR[1], ENEMYCOLOR[2], ENEMYCOLOR[3])
+				end
+			end
+		end
+		function createHealthbar(J)
+			board = Instance.new("BillboardGui", J)
+			board.Name = "total"
+			board.Size = UDim2.new(1, 0, 1, 0)
+			board.StudsOffset = Vector3.new(3, 1, 0)
+			board.AlwaysOnTop = true
+			bar = Instance.new("Frame", board)
+			bar.BackgroundColor3 = Color3.new(255, 0, 0)
+			bar.BorderSizePixel = 0
+			bar.Size = UDim2.new(0.2, 0, 4, 0)
+			bar.Name = "total2"
+			health = Instance.new("Frame", bar)
+			health.BackgroundColor3 = Color3.new(0, 255, 0)
+			health.BorderSizePixel = 0
+			health.Size = UDim2.new(1, 0, J.Parent.Humanoid.Health / 100, 0)
+			J.Parent.Humanoid.Changed:Connect(
+				function(K)
+					J.total.total2.Frame.Size = UDim2.new(1, 0, J.Parent.Humanoid.Health / 100, 0)
+				end
+			)
+		end
+		function createESP(c)
+			bugfix = c:WaitForChild("Head")
+			for u, v in pairs(c:GetChildren()) do
+				if checkPart(v) then
+					actualESP(v)
+				end
+			end
+			if HEALTHBAR_ACTIVATED then
+				createHealthbar(c:WaitForChild("HumanoidRootPart"))
+			end
+		end
+		for u, L in pairs(players:GetChildren()) do
+			if L ~= players.LocalPlayer then
+				currentPlayer = L
+				createESP(L.Character)
+				L.CharacterAdded:Connect(
+					function(H)
+						createESP(H)
+					end
+				)
+			end
+		end
+	end
+	createFlex()
+end
+)
+
 midsection:addButton("Infinite Yield", function ()
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
 end)
+
+midsection:addButton("Ores ESP", function ()
+	function CreateESPPart(M, N)
+		local O = M
+		local P = Instance.new("BoxHandleAdornment")
+		P.Size = M.Size + Vector3.new(0.1, 0.1, 0.1)
+		P.Name = "EspPart"
+		P.Adornee = O
+		P.Color3 = N
+		P.AlwaysOnTop = true
+		P.ZIndex = 5
+		P.Transparency = 0.2
+		P.Parent = M
+	end
+	local t = workspace:getDescendants()
+	for u = 1, #t do
+		if t[u].Name == "Block" and t[u].Parent.Name == "Ores" then
+			CreateESPPart(t[u], Color3.fromRGB(193, 223, 240))
+		end
+	end
+end
+)
 
 midsection:addButton("Remove Killplates", function ()
 	game.workspace.Lobby.KillPlates:remove()
@@ -212,6 +326,29 @@ tpsection:addButton("Shop", function ()
 	plr.HumanoidRootPart.CFrame = CFrame.new(60, 261, 0)
 end)
 
+tpsection:addButton("Group Room", function ()
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(121, 264, -0)
+end)
+
+tpsection:addButton("Game Store", function ()
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame =
+		CFrame.new(
+			-59.9186897,
+			264,
+			0.00818219129,
+			0.0125666363,
+			2.58190047e-09,
+			0.999921024,
+			-6.16111384e-10,
+			1,
+			-2.57436117e-09,
+			-0.999921024,
+			-5.8371169e-10,
+			0.0125666363
+		)
+end
+)
+
 tpsection:addButton("VIP", function ()
 	local plr = game:GetService('Players').LocalPlayer.Character
 	plr.HumanoidRootPart.CFrame = CFrame.new(-11, 264, -79)
@@ -221,9 +358,49 @@ tpsection:addButton("Mega VIP", function ()
 	game:GetService('Players').LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1.06104672, 264, 72.2138901)
 end)
 
-tpsection:addButton("Middle Island", function ()
+islandsection:addButton("Middle Island", function ()
 	game:GetService('Players').LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2, 171, -9)
 end)
+
+islandsection:addButton("Island 1", function ()
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-116, 169, -104)
+end
+)
+
+islandsection:addButton("Island 2", function ()
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-8, 169, -104)
+end
+)
+
+islandsection:addButton("Island 3", function ()
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(116, 169, -103)
+end
+)
+
+islandsection:addButton("Island 4", function ()
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(113, 169, -0)
+end
+)
+
+islandsection:addButton("Island 5", function ()
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(112, 169, 124)
+end
+)
+
+islandsection:addButton("Island 6", function ()
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-120, 165, 124)
+end
+)
+
+islandsection:addButton("Island 7", function ()
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-112, 165, 16)
+end
+)
+
+islandsection:addButton("Island 8", function ()
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0, 264, 20)
+end
+)
 
 cbsection:addButton("Hitbox", function ()
 	loadstring(game:HttpGet("https://pastebin.com/raw/86MVeD35"))()
