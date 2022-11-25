@@ -104,6 +104,10 @@ tcsection:addButton("Porn Hub", function ()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/Tescalus/Pendulum-Hubs-Source/main/Pendulum%20Hub%20V5.lua"))()  
 end)
 
+tcsection:addButton("Owl Hub", function ()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt"))()  
+end)
+
 tcsection:addKeybind("Mine Aura", Enum.KeyCode.C, function()
 	function onTouched(part)       
 		local h = part
